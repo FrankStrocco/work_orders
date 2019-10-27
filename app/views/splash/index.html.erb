@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Work Order</title>
+  
+</head>
+<body>
+  <div class="container-fluid">
+	<div class="row">
+		<div id="contain" class="col-md-12">
+			<div class="jumbotron card card-block">
+				<h2>
+				  Welcome WORK ORDER!
+				</h2>
+				<p>
+					LogIn to begin scheduling your work orders!
+				</p>
+				<p>
+					<a class="btn btn-primary btn-large" <%=link_to('Orders', {:controller => 'orders', :action => 'index'}) %></a>
+          <!--  -->
+				</p>
+			</div>
+
+			<form id="logIn" role="form">
+				<div class="form-group">
+
+					<label for="exampleInputEmail1">
+						Email address
+					</label>
+					<input type="email" class="form-control" id="exampleInputEmail1" />
+				</div>
+				<div class="form-group">
+
+					<label for="exampleInputPassword1">
+						Password
+					</label>
+					<input type="password" class="form-control" id="exampleInputPassword1" />
+				</div>
+				<div class="form-group">
+				</div>
+				<button type="submit" class="btn btn-primary">
+					<a class="btn btn-primary btn-large" <%=link_to('Orders', {:controller => 'orders', :action => 'index'}) %></a>
+				</button>
+			</form>
+
+			<div class="media top">
+				<img class="pics" alt="My dog piglet"<%=image_tag("/assets/piglet2.jpg") %>
+				<div class="media-body">
+					<h5 class="mt-0">
+						My Dog Piglet
+					</h5> Added some extra stuff to fill out the splash page a bit
+					<div class="media mt-3">
+						 <a class="pr-3" href="#"><img class="pics" alt="Halloween frankensteino"<%=image_tag("/assets/Frankensteino.jpg") %></a>
+						<div class="media-body">
+							<h5 class="mt-0">
+								Picture of my avatar frankensteino
+							</h5> This should be good for the opening page. Just quick and simple
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

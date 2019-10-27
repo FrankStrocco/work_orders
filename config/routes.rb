@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+  root 'splash#index'
+
   resources :locations
   resources :technicians
   resources :orders
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  get 'splash/index'
+  get 'orders/index'
+
 end

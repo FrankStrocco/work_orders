@@ -15,6 +15,15 @@ class TechniciansController < ApplicationController
   # GET /technicians/new
   def new
     @technician = Technician.new
+
+    # require 'csv'
+    #
+    # csv_text = File.read('...')
+    # csv = CSV.parse(csv_text, :headers => true)
+    # csv.each do |row|
+    #   Moulding.create!(row.to_hash)
+    # end
+
   end
 
   # GET /technicians/1/edit

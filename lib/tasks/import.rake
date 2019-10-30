@@ -7,7 +7,7 @@ namespace :import do
     i = 0
     CSV.foreach(filename) do |row|
       id, name = row
-      if
+      if i > 0
         Technician.create(id: id, name: name)
       end
     i += 1

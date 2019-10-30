@@ -5,7 +5,14 @@
 .order-grid {
   width: 1200px;
 }
-.row {
+.container {
   border: 1px solid #337ab7;
+  border-bottom: 0;
+}
+
+.row {
+  border-bottom: 1px solid #337ab7;
+}
+.contRow {
   border-bottom: 0;
 }

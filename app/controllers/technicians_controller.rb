@@ -5,8 +5,8 @@ class TechniciansController < ApplicationController
   # GET /technicians.json
   def index
     @technicians = Technician.all
-
-    redirect_to orders_path(techs: @technicians)
+    render('orders', "index")
+    redirect_to orders_path(@technicians)
   end
 
   # GET /technicians/1

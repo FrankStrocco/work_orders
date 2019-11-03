@@ -10,6 +10,8 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @orders
+    @technicians
   end
 
   # GET /orders/new

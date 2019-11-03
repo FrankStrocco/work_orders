@@ -24,41 +24,74 @@
 
         <div class="container order-grid">
           <% count = 1 %>
-          <% hour = 6 %>
+          <% hour = 5 %>
+          <% min = ":00" %>
+
           <% 15.times do |row| %>
 
-    			<div class="row outside-grid">
-    				<div class="col-md-1">
+      			<div class="row outside-grid  <%= "row#{row}"%>">
+      				<div class="col-md-1 farLeft">
+              </div>
+              <div class="col-md-2 time-col">
+                <%= "TIME" if count === 1 %>
 
-              <%= "TIME" if count === 1 %>
-              <% if count > 1 %>
-              <% min = ":00" %>
+                <%= "#{hour}#{min}" if count > 1 %>
+      				</div>
 
-              <%= "#{hour}#{min}" %>
-              <% hour += 1 %>
+
+              <% @technicians = Technician.all %>
+
+              <% @technicians.each_with_index do |tech, i| %>
+
+                <%= puts "tech ====== #{tech}" %>
+
+      				  <div id="time-col"class="col-md-2 <%= "tech#{tech.id}"%>">
+
+                  <%= tech.name if count === 1 %>
+                  <% technician_column = [tech.name, tech.id] %>
+                  <% techs = Order.where(:technician_id => (tech.id)) %>
+
+
+
+
+                  <% techs.each do |current_tech| %>
+
+                    <% location_info = Location.where(:id => current_tech.location_id) %>
+
+
+                    <% time = current_tech.time.split(" ")[1].split(":")[0] %>
+                    <% price = current_tech.price %>
+                    <% duration = current_tech.duration %>
+
+                    <% if hour.to_s == time && technician_column[1] == current_tech.technician_id %>
+
+                      <% location_name = location_info[0].name %>
+                      <% location_city = location_info[0].city %>
+                      <%= location_name %> <br>
+                      <%="City: #{location_city}" %> <br>
+
+                      <%="Duration: #{duration} minutes" %> <br>
+                      <%="Price: $#{price}" %> <br>
+                    <% end %>
+                  <% end %>
+
+
+
+      				  </div>
               <% end %>
-    				</div>
-
-            <% @technicians = Technician.all %>
-            <% @technicians.each do |tech| %>
-            <%= puts "tech name #{tech.name}" %>
-    				  <div id="time-col"class="col-md-2">
-                <%= tech.name if count === 1 %>
-    				  </div>
-            <% end %>
-    				<div class="col-md-2 tech1">
-
-    				</div>
-
-    				<div class="col-md-1">
-              blank
-    				</div>
-    			</div>
-          <% count += 1 %>
+      				<div class="col-md-1 farRight">
+      				</div>
+              <% hour += 1 %>
+      			</div>
+            <%= puts count %>
+            <% count += 1 %>
           <% end %>
 
-
         </div> <!-- end of grid container fluid-->
+        <div class="jumbotron">
+
+
+        </div>
   		</div>
   	</div>
   </div>

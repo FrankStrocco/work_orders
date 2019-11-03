@@ -5,6 +5,8 @@ class LocationsController < ApplicationController
   # GET /locations.json
   def index
     @locations = Location.all
+
+    redirect_to orders_path(@locations)
   end
 
   # GET /locations/1

@@ -9,7 +9,19 @@
   border: 1px solid #337ab7;
   border-bottom: 0;
 }
-
+ul {
+  margin: 0;
+  padding: 0;
+  line-height: 14px;
+}
+ul li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+ul li:nth-child(1) {
+  font-weight: bold;
+}
 .row {
   height: 100px;
   border-bottom: 1px solid #337ab7;
@@ -23,10 +35,13 @@
   color: #fff;
   text-align: center;
 }
+#Bill_1, #Juan_1, #Bob_1, #Alice_1 {
+  padding-top: 43px;
+}
 .col-md-2 {
   text-align: left;
   height: inherit;
-  padding: 5px 0 5px 37px;
+  padding: 15px 0 5px 37px;
   border-right: 1px solid #337ab7;
 }
 .time-col {
@@ -38,6 +53,84 @@
   height: inherit;
   background-color: #337ab7;
 }
-.farRight {
-  
+.eModal {
+  display: block;
+  height: inherit;
+  width: inherit;
+}
+
+// modal section
+//
+// .aboutMePic img:hover {
+//     opacity: 0.6;
+// }
+// #myModal img:hover {
+//     opacity: 1.0;
+// }
+
+/* images modal */
+.eModal {
+  display: none; /* Hidden by default */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  position: relative;
+  width: 500px; /* Full width */
+  height: 300px; /* Full height */
+  // overflow: ; /* Enable scroll if needed */
+  background-color: #999; /* Fallback color */
+}
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 10%;
+  max-width: 800px;
+}
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)}
+  to {-webkit-transform:scale(1)}
+}
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
 }

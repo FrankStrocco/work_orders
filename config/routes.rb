@@ -7,5 +7,6 @@ Rails.application.routes.draw do
 
   get 'splash/index'
   get 'orders/index'
+  get 'splash/other_index'
 
 end

@@ -18,7 +18,7 @@
   					Check the orders grid to see your schedule
   				</p>
   				<p>
-  					<a class="btn btn-primary btn-large" href="#">Learn more</a>
+            <a class="btn btn-primary btn-large" <%=link_to('Landing Page', {:controller => 'splash', :action => 'index'}) %></a>
   				</p>
   			</div>
 
@@ -43,16 +43,15 @@
 
               <% @technicians.each_with_index do |tech, i| %>
 
+
+                <% populated = false %>
                 <%= puts "tech ====== #{tech}" %>
 
-      				  <div id="time-col"class="col-md-2 <%= "tech#{tech.id}"%>">
+      				  <div id="<%="#{tech.name.split(" ")[0]}_#{count}" %>" class="col-md-2 <%= "inside-grid" if count > 1  %>" >
 
                   <%= tech.name if count === 1 %>
                   <% technician_column = [tech.name, tech.id] %>
                   <% techs = Order.where(:technician_id => (tech.id)) %>
-
-
-
 
                   <% techs.each do |current_tech| %>
 
@@ -64,19 +63,31 @@
                     <% duration = current_tech.duration %>
 
                     <% if hour.to_s == time && technician_column[1] == current_tech.technician_id %>
+                    <% location_name = location_info[0].name %>
+                    <% location_city = location_info[0].city %>
+                      <ul>
+                        <li>
+                          <%= location_name %> <br>
+                        </li>
+                        <li>
+                          <%="City: #{location_city}" %> <br>
+                        </li>
+                        <li>
+                          <%="Duration: #{duration} minutes" %> <br>
+                        </li>
+                        <li>
+                          <%="Price: $#{price}" %> <br>
+                        </li>
 
-                      <% location_name = location_info[0].name %>
-                      <% location_city = location_info[0].city %>
-                      <%= location_name %> <br>
-                      <%="City: #{location_city}" %> <br>
-
-                      <%="Duration: #{duration} minutes" %> <br>
-                      <%="Price: $#{price}" %> <br>
+                      </ul>
+                      <% populated = true %>
                     <% end %>
                   <% end %>
 
+                  <% if !populated && count > 1%>
 
 
+                  <% end %>
       				  </div>
               <% end %>
       				<div class="col-md-1 farRight">
